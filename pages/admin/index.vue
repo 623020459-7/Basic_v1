@@ -17,12 +17,12 @@
     <nuxt-link to="/admin/posts/create" class="btn btn-success">เขียนบทความ</nuxt-link>
 </div> -->
 
-</template>
+</template> 
 <script>
 
-<script  src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
-<script  src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/virtual-tour.js"></script>
-<script  src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.js"></script>
+// <script  src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+// <script  src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/virtual-tour.js"></script>
+// <script  src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.js"></script>
 var viewer = new PhotoSphereViewer.Viewer({
             container: document.querySelector("#photosphere"),
             panorama: 'No2.jpg',
