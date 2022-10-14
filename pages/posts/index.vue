@@ -1,19 +1,22 @@
 <template>
     <b-container fluid="md">
         <Header/>
-        <PostList :posts="loadData"/>     
+        <Slide/>
+        <!-- <PostList :posts="loadData"/>      -->
     </b-container>
 </template>
 
 <script>
-import Header from '@/components/posts/Header'
-import PostList from '@/components/posts/PostList'
+import Header from '../../components/posts/Header.vue';
+import Slide from '@/components/posts/Slide'
+// import PostList from '@/components/posts/PostList'
 export default {
     layout:"coreLayout",
     components:{
         Header,
-        PostList
-    },
+        Slide,
+    // PostList,
+},
     data(){
         return{
             loadData:[
