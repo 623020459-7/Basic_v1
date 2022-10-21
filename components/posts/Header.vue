@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-navbar toggleable="lg" type="" variant="" class="header-color">
-            <b-navbar-brand href="#">
+            <b-navbar-brand>
                 <img src="../../assets/image/686.jpg" alt="" class="header-logo">
             </b-navbar-brand>
 
@@ -12,11 +12,12 @@
                 <b-navbar-nav class="ml-auto">
                     <b-nav-form>
                         <div class="button-nav-form">
-                            <b-button size="sm" class="my-2 my-sm-0 text-home" type="submit">Home</b-button>
+                            <nuxt-link to="/" size="sm" class="my-2 my-sm-0 text-home" type="submit">Home</nuxt-link>
                         </div>
                         <div class="button-nav-form">
-                            <b-button size="sm" class="my-2 my-sm-0 text-home" type="submit">360 ํ virtual tour
-                            </b-button>
+                            <nuxt-link to="/virtual.html" size="sm" class="my-2 my-sm-0 text-home" type="submit">360 ํ
+                                virtual tour
+                            </nuxt-link>
                         </div>
                         <div class="">
                             <b-nav-item-dropdown text="Gallery" right>
@@ -53,6 +54,13 @@ export default {
     width: 20vw;
 }
 
+/* a.nuxt-link-active {
+  font-weight: bold;
+} */
+/* a.nuxt-link-exact-active {
+  color: #00c58e;
+} */
+
 a,
 .text-home {
     color: var(--color-kku);
@@ -63,27 +71,45 @@ a,
 .text-home {
     background: none;
     border: none;
+    padding: 0.25rem 1rem;
 }
-.button-nav-form{
-    padding: 0 1rem;
+
+.button-nav-form {
+    padding: 0 0.5rem;
 }
-a:hover ,
-.btn-secondary:hover {
+
+.dropdown {
+    padding: 0 0.5rem;
+}
+
+a:hover,
+.btn-secondary:hover,
+a.nuxt-link-exact-active {
     color: #fff;
     background-color: var(--color-kku);
     border-color: var(--color-kku);
+    text-decoration: none;
+    padding: 0.25rem 1rem;
+    border-radius: 1.5rem;
 }
-.btn-sm, .btn-group-sm > .btn {
-    border-radius: 0;
+
+.btn-sm,
+.btn-group-sm>.btn {
+    border-radius: 1.5rem;
 }
-.nav-link{
+
+.nav-link {
     padding: 0.25rem 1rem;
 }
-.dropdown-item:hover, .dropdown-item:focus {
+
+.dropdown-item:hover,
+.dropdown-item:focus {
     color: #fff;
     background-color: var(--color-kku);
+    border-radius: 1.5rem;
 }
-.navbar-brand:hover{
+
+.navbar-brand:hover {
     background: none;
 }
 </style>

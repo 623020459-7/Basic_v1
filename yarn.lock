@@ -1911,6 +1911,14 @@
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.1"
 
+"babel-runtime@^6.26.0":
+  "integrity" "sha512-ITKNuq2wKlW1fJg9sSW52eepoYgZBggvOAHC0u/CYu/qxQ9EVzThCgR69BnSXLHjy2f7SY5zaQ4yt7H9ZVxY2g=="
+  "resolved" "https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz"
+  "version" "6.26.0"
+  dependencies:
+    "core-js" "^2.4.0"
+    "regenerator-runtime" "^0.11.0"
+
 "balanced-match@^1.0.0":
   "integrity" "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
   "resolved" "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
@@ -2670,12 +2678,17 @@
     "browserslist" "^4.20.3"
     "semver" "7.0.0"
 
+"core-js@^2.4.0":
+  "integrity" "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ=="
+  "resolved" "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz"
+  "version" "2.6.12"
+
 "core-js@^2.6.5":
   "integrity" "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ=="
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz"
   "version" "2.6.12"
 
-"core-js@^3.19.3":
+"core-js@^3.19.3", "core-js@^3.6.5":
   "integrity" "sha512-1uLykR+iOfYja+6Jn/57743gc9n73EWiOnSJJ4ba3B4fOEYDBv25MagmEZBxTp5cWq4b/KPx/l77zgsp28ju4w=="
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.22.4.tgz"
   "version" "3.22.4"
@@ -3181,6 +3194,11 @@
   "version" "5.3.0"
   dependencies:
     "is-obj" "^2.0.0"
+
+"dot@>=1.0.3":
+  "integrity" "sha512-/nt74Rm+PcfnirXGEdhZleTwGC2LMnuKTeeTIlI82xb5loBBoXNYzr2ezCroPSMtilK8EZIfcNZwOcHN+ib1Lg=="
+  "resolved" "https://registry.npmjs.org/dot/-/dot-1.1.3.tgz"
+  "version" "1.1.3"
 
 "dotenv@^9.0.2":
   "integrity" "sha512-I9OvvrHp4pIARv4+x9iuewrWycX6CcZtoAu1XrzPxc5UygMJXJZYmBsynku8IkrJwgypE5DGNjDPmPRhDCptUg=="
@@ -3836,6 +3854,11 @@
   "integrity" "sha512-7+G0/2/COR8pwteYFqHIVYfQpuEiO2HXwJrhCBJVgrNrl9O5eaUoJVDGXUJX+0RpGncNVTuestexjk1afj01wQ=="
   "resolved" "https://registry.npmjs.org/hable/-/hable-3.0.0.tgz"
   "version" "3.0.0"
+
+"hammerjs@^2.0.8":
+  "integrity" "sha512-tSQXBXS/MWQOn/RKckawJ61vvsDpCom87JgxiYdGwHdOa0ht0vzUWDlfioofFCRU0L+6NGDt6XzbgoJvZkMeRQ=="
+  "resolved" "https://registry.npmjs.org/hammerjs/-/hammerjs-2.0.8.tgz"
+  "version" "2.0.8"
 
 "hard-source-webpack-plugin@^0.13.1":
   "integrity" "sha512-r9zf5Wq7IqJHdVAQsZ4OP+dcUSvoHqDMxJlIzaE2J0TZWn3UjMMrHqwDHR8Jr/pzPfG7XxSe36E7Y8QGNdtuAw=="
@@ -5599,6 +5622,15 @@
     "safe-buffer" "^5.0.1"
     "sha.js" "^2.4.8"
 
+"photo-sphere-viewer@^3.6.0":
+  "integrity" "sha512-EtC6KlPoxv91XBgYO3zICijR/sddDTTc/StYYFLgjqq51+izZDbjv0VVhQ9TUbyIkP0mYcsAKoVGoFt5BaT1ZQ=="
+  "resolved" "https://registry.npmjs.org/photo-sphere-viewer/-/photo-sphere-viewer-3.6.0.tgz"
+  "version" "3.6.0"
+  dependencies:
+    "dot" ">=1.0.3"
+    "three" ">= 0.97.0"
+    "uevent" "~1.0.0"
+
 "picocolors@^0.2.1":
   "integrity" "sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA=="
   "resolved" "https://registry.npmjs.org/picocolors/-/picocolors-0.2.1.tgz"
@@ -6583,6 +6615,11 @@
   "resolved" "https://registry.npmjs.org/regenerate/-/regenerate-1.4.2.tgz"
   "version" "1.4.2"
 
+"regenerator-runtime@^0.11.0":
+  "integrity" "sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg=="
+  "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz"
+  "version" "0.11.1"
+
 "regenerator-runtime@^0.13.4", "regenerator-runtime@^0.13.7":
   "integrity" "sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA=="
   "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz"
@@ -7449,6 +7486,11 @@
     "neo-async" "^2.6.2"
     "schema-utils" "^3.0.0"
 
+"three@>= 0.97.0":
+  "integrity" "sha512-R8AXPuqfjfRJKkYoTQcTK7A6i3AdO9++2n8ubya/GTU+fEHhYKu1ZooRSCPkx69jbnzT7dD/xEo6eROQTt2lJw=="
+  "resolved" "https://registry.npmjs.org/three/-/three-0.144.0.tgz"
+  "version" "0.144.0"
+
 "through@^2.3.6":
   "integrity" "sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU="
   "resolved" "https://registry.npmjs.org/through/-/through-2.3.8.tgz"
@@ -7589,6 +7631,11 @@
   "integrity" "sha512-qLK/Xe9E2uzmYI3qLeOmI0tEOt+TBBQyUIAh4aAgU05FVYzeZrKUdkAZfBNVGRaHVgV0TDkdEngJSw/SyQchkQ=="
   "resolved" "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.31.tgz"
   "version" "0.7.31"
+
+"uevent@~1.0.0":
+  "integrity" "sha512-AbnTxXJpn6kuT4fBLBybIMzUk68k6prGqN8+lo0PZqcoqBl62m74Awp2oLACH+UcjbSJvyMmsYWlkoKVhxW3Ow=="
+  "resolved" "https://registry.npmjs.org/uevent/-/uevent-1.0.0.tgz"
+  "version" "1.0.0"
 
 "ufo@^0.7.4":
   "integrity" "sha512-IT3q0lPvtkqQ8toHQN/BkOi4VIqoqheqM1FnkNWT9y0G8B3xJhwnoKBu5OHx8zHDOvveQzfKuFowJ0VSARiIDg=="
@@ -7796,6 +7843,11 @@
   "resolved" "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
   "version" "1.0.1"
 
+"uuid@^3.4.0":
+  "integrity" "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="
+  "resolved" "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
+  "version" "3.4.0"
+
 "vary@^1.1.2", "vary@~1.1.2":
   "integrity" "sha1-IpnwLG3tMNSllhsLn3RSShj2NPw="
   "resolved" "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
@@ -7810,6 +7862,16 @@
   "integrity" "sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ=="
   "resolved" "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz"
   "version" "1.1.2"
+
+"vue-360@^0.1.6":
+  "integrity" "sha512-AZ+cDOttFjNOzr4jVJvgPYzIRo27exLZMAIx3OG9axI9pvzvD3pIxLNLsW4Yff+MFaBkOJT6mwj0QDI7nqbACw=="
+  "resolved" "https://registry.npmjs.org/vue-360/-/vue-360-0.1.6.tgz"
+  "version" "0.1.6"
+  dependencies:
+    "core-js" "^3.6.5"
+    "uuid" "^3.4.0"
+    "vue" "^2.6.10"
+    "vue2-hammer" "^2.1.2"
 
 "vue-client-only@^2.0.0":
   "integrity" "sha512-vKl1skEKn8EK9f8P2ZzhRnuaRHLHrlt1sbRmazlvsx6EiC3A8oWF8YCBrMJzoN+W3OnElwIGbVjsx6/xelY1AA=="
@@ -7889,10 +7951,18 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2.0.0", "vue@^2.5.18", "vue@^2.6.12", "vue@^2.6.14":
+"vue@^2.0.0", "vue@^2.5.18", "vue@^2.6.10", "vue@^2.6.12", "vue@^2.6.14":
   "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   "version" "2.6.14"
+
+"vue2-hammer@^2.1.2":
+  "integrity" "sha512-IgA7MhGsc1twUgMyxaOM2xc5YMF+aWJP0YC174dc51glbO99VltrV/uTBd/OUR5gk87MheJi97mhTcMm5kiQUQ=="
+  "resolved" "https://registry.npmjs.org/vue2-hammer/-/vue2-hammer-2.1.2.tgz"
+  "version" "2.1.2"
+  dependencies:
+    "babel-runtime" "^6.26.0"
+    "hammerjs" "^2.0.8"
 
 "vuex@^3.6.2":
   "integrity" "sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw=="
