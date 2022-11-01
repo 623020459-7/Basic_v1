@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    
+
+<head>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+    <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/virtual-tour.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.js"></script>
+</head>
+
+<body>
+    
+    <div id="photosphere" style="width: 80%; height: 700px; margin-left: 150px; margin-top: 50px"></div>
+    <div class="container">
+
+    </div>
+    <!-- <div id="home" class="text-center p-5">
+        <a href="Welpj.html" class="btn btn btn-outline-success m-1">Home</a>
+    </div> -->
+
+    
+
+    <script>
+        var viewer = new PhotoSphereViewer.Viewer({
+            container: document.querySelector("#photosphere"),
+            panorama: 'No1.JPG',
+            loadingImg:
+                "https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif",
+            touchmoveTwoFingers: true,
+            mousewheelCtrlKey: true,
+            caption: "360 Virtual of KKU Arts & Culture Center",
+            defaultLong: "100deg",
+            plugins: [
+                [
+                    PhotoSphereViewer.MarkersPlugin,
+                    {
+                        hideButton: false,
+                        listButton: false,
+                    },
+                ],
+                [
+                    PhotoSphereViewer.VirtualTourPlugin,
+                    {
+                        positionMode: PhotoSphereViewer.VirtualTourPlugin.MODE_GPS,
+                        renderMode: PhotoSphereViewer.VirtualTourPlugin.MODE_3D,
+                    },
+                ],
+            ],
+        });
+   
+    </script>
+</body>
+
+<style>
+    html,
+    body,
+    #photosphere {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+</html>

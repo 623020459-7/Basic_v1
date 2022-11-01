@@ -1,34 +1,41 @@
 <template>
-    <b-row class="py-2">
-            <PostContant 
-                    v-for="post in posts" 
-                        :key="post.id"
-                        :id="post.id"
-                        :title="post.title"
-                        :content="post.content"
-                        :image="post.image"
-                        :isAdmin="isAdmin"
-            />
-           
-        </b-row>
+    <b-col md="4">
+        <b-card :title=title img-alt="image" img-top tag="article" style="max-width: 20rem;" class="mb-2"
+            :img-src=image>
+            <b-card-text>
+                {{ content }}
+            </b-card-text>
+        </b-card>
+    </b-col>
 </template>
-
 <script>
-import PostContant from "@/components/posts/PostContant"
 export default {
-    layout:"coreLayout",
-    components:{
-        PostContant
-    },
-    props:{
-        isAdmin:{
-            type:Boolean,
-            default:false
+    props: {
+        id: {
+            type: String,
+            required: false
         },
-        posts:{
-            type:Array,
-            required:true
-        }
-    }
+        title: {
+            type: String,
+            required: true
+        },
+        content: {
+            type: String,
+            required: true
+        },
+        image: {
+            type: String,
+            required: true
+        },
+        // isAdmin: {
+        //     type: Boolean,
+        //     required: true
+        // }
+    },
+    // computed: {
+    //     postLink() {
+    //         return this.isAdmin ? '/admin/post' + this.id : '/post/' + this.id
+    //     }
+    // }
 }
 </script>
