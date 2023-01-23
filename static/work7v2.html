@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.css" />
+
+    <title>VR Tour360</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        img {
+            width: 350px;
+            height: 200px;
+            align-items: center;
+        }
+
+        .btn-grad {
+            background-image: linear-gradient(to right,
+                    #f1f2b5 0%,
+                    #f57328 51%,
+                    #f1f2b5 100%);
+        }
+
+        .btn-grad {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: rgb(10, 0, 0);
+            border-radius: 10px;
+        }
+
+        .btn-grad:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+            color: rgb(7, 0, 0);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <div id="text1" style="display: none" class="text-center" >
+        <br /><br />
+        <h5>
+            <a class="btn btn-rounded btn-grad" href="Virtual2.html"></a>
+        </h5>
+
+    </div>
+
+    <div id="text2" style="display: none">
+        <h2>ศาลาบูชาดอกไม้ธูปเทียน</h2>
+        <img src="work5/Vv3.jpg" />
+        <br /><br />
+        <h5>
+            <a class="btn btn-rounded btn-grad" href="work7F.html">
+                ศาลาบูชาดอกไม้ธูปเทียน</a>
+        </h5>
+    </div>
+    <div id="text3" style="display: none">
+        <h2>เซียมซีศาลเจ้าพ่อมอดินแดง</h2>
+        <img src="work5/Vv4.jpg" />
+        <br /><br />
+        <h5>
+            <a class="btn btn-rounded btn-grad" href="work7D.html">เซียมซีศาลเจ้าพ่อมอดินแดง</a>
+        </h5>
+    </div>
+    <div id="text4" style="display: none">
+        <h2>ที่สำหรับจอดรถ</h2>
+        <img src="work5/Vv5.jpg" />
+        <br /><br />
+        <h5>
+            <a class="btn btn-rounded btn-grad" href="work7J.html">ที่สำหรับจอดรถ</a>
+        </h5>
+    </div>
+    <div id="text5" style="display: none" class="text-center">
+        <h2>wecome</h2>
+        <img src="work5/Vv2.jpg" />
+        <br /><br />
+        <h5>
+            <p>ศาลาเจ้าพ่อมอดินแดง</p>
+        </h5>
+        <p>ยินดีต้อนรับ</p>
+        <p>จัดทำโดย </p>
+        <p>623021111-2นางสาวบุศราทิพย์ ผาติชัยเกียรติ
+            623021192-6นายนนทกานต์ มูลเพชร </p>
+    </div>
+
+    <div id="viewer" style="width: 80%; height: 700px; margin-left: 150px; margin-top: 50px"></div>
+    <script>
+        const baseUrl = 'https://photo-sphere-viewer-data.netlify.app/assets/';
+        var viewer = new PhotoSphereViewer.Viewer({
+            container: document.querySelector("#viewer"),
+            panorama: "L11.jpg",
+            touchmoveTwoFingers: true,
+            mousewheelCtrlKey: true,
+            caption: "360 Virtual of KKU Arts & Culture Center",
+            defaultLong: "100deg",
+            plugins: [
+                [
+                    PhotoSphereViewer.MarkersPlugin,
+                    {
+                        markers: [
+                            {
+                                id: "marker-6nkdpzoj9l2",
+                                image:
+                                    "pin-1.png",
+                                longitude: 5.5,
+                                latitude: 0.3,
+                                width: 32,
+                                height: 32,
+                                tooltip: "ศาลาเจ้าพ่อมอดินแดง",
+                                content: $("#text1").html(),
+                            },
+                            {
+                                id: '2',
+                                panorama: baseUrl + 'O1.jpg',
+                                thumbnail: baseUrl + 'tour/key-biscayne-2-thumb.jpg',
+                                name: 'Two',
+                                links: [{ nodeId: '3' }, { nodeId: '1' }],
+                                gps: [-80.156168, 25.666623, 3],
+                                panoData: { poseHeading: 318 },
+                            },
+                            {
+                                id: "marker-8sm8zzizggs",
+                                image:
+                                    "pin-1.png",
+                                longitude: 3.543,
+                                latitude: 0.043,
+                                width: 32,
+                                height: 32,
+                                tooltip: "เซียมซีศาลเจ้าพ่อมอดินแดง",
+                                content: $("#text3").html(),
+                            },
+                            {
+                                id: "marker-ir0gks170s",
+                                image:
+                                    "pin-1.png",
+                                longitude: 0.6,
+                                latitude: 0.025,
+                                width: 32,
+                                height: 32,
+                                tooltip: "ที่สำหรับจอดรถ",
+                                content: $("#text4").html(),
+                            },
+                            {
+                                id: "marker-hu5qeludym",
+                                image:
+                                    "pin-1.png",
+                                longitude: 4.9,
+                                latitude: -0.016,
+                                width: 32,
+                                height: 32,
+                                tooltip: "wecome",
+                                content: $("#text5").html(),
+                            },
+                        ],
+                    },
+                ],
+            ],
+        });
+    </script>
+</body>
+
+</html>
