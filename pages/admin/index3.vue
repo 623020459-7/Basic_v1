@@ -2,15 +2,15 @@
     <div>
         <b-container fluid="md">
             <Header />
-            <PostContent />
+            <AdminLogin />
         </b-container>
 
     </div>
 </template>
 
-<script >
+<script>
 import Header from '../../components/posts/Header.vue';
-import PostContent from '../../components/posts/PostContent.vue';
+import AdminLogin from '../../components/admin/AdminLogin.vue';
 
 
 
@@ -19,7 +19,7 @@ export default {
     components: {
         Header,
         //PostList,
-        PostContent
+        AdminLogin
         // Virtual_tour
     }
 }

@@ -1,78 +1,1027 @@
-<!DOCTYPE html>
-<html>
-    
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Sarabun"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+            />
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+            
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/uevent@2/browser.js"></script>
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.js"></script>
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.css">
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.js"></script>
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.css">
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/virtual-tour.js"></script>
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/virtual-tour.css">
+        <title>Work Midterm</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            body {
+                background-color: #feee;
+                font-family: "Sarabun", sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Dark Mode -->
+        <script type="text/template" id="dark1">
+            <a href="#" id="btndark1" class="btn btn-dark" onClick="darkMode(Virtual2.html)">NightMode</a>
+            <a href="#" id="btnlight1" style="display:none;" class="btn btn-light" onClick="darkMode('1',false,1)">Light Mode</a>
+        </script>
 
-<head>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        <script type="text/template" id="dark2">
+            <a href="#" id="btndark2" class="btn btn-dark" onClick="darkMode('2.1',true,2)">NightMode</a>
+            <a href="#" id="btnlight2" style="display:none;" class="btn btn-light" onClick="darkMode('2',false,2)">LightMode</a>
+        </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uevent@2/browser.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.css" />
-
-    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/photo-sphere-viewer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/virtual-tour.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4/dist/plugins/markers.min.js"></script>
-</head>
-
-<body>
-    
-    <div id="photosphere" style="width: 80%; height: 700px; margin-left: 150px; margin-top: 50px"></div>
-    <div class="container">
-
-    </div>
-    <!-- <div id="home" class="text-center p-5">
-        <a href="Welpj.html" class="btn btn btn-outline-success m-1">Home</a>
-    </div> -->
-
-    
-
-    <script>
-        var viewer = new PhotoSphereViewer.Viewer({
-            container: document.querySelector("#photosphere"),
-            panorama: '360v3.JPG',
-            loadingImg:
-                "https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif",
-            touchmoveTwoFingers: true,
-            mousewheelCtrlKey: true,
-            caption: "360 Virtual of KKU Arts & Culture Center",
-            defaultLong: "100deg",
-            plugins: [
-                [
-                    PhotoSphereViewer.MarkersPlugin,
-                    {
-                        hideButton: false,
-                        listButton: false,
+        <div id="photosphere" style="width: 80%; height: 700px; margin-left: 150px; margin-top: 50px"></div>
+        <div id="home" class="text-center p-5">
+            <a href="/" class="btn btn btn-outline-success m-1">Home</a>
+            </div>
+        <script>
+            var viewer = new PhotoSphereViewer.Viewer({
+            container: 'photosphere',
+            loadingImg: 'https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700',
+            plugins    : [
+                [PhotoSphereViewer.MarkersPlugin, {
+                    hideButton: false,
+                    listButton: false,
+                }],
+                [PhotoSphereViewer.VirtualTourPlugin, {
+                    //positionMode: PhotoSphereViewer.VirtualTourPlugin.MODE_GPS,
+                    //renderMode  : PhotoSphereViewer.VirtualTourPlugin.MODE_3D,
+                    linksOnCompass: true,
+                    markerStyle: {
+                        html : null,
+                        image: 'L3.jpg',
+                        width    : 300,
+                        height   : 600,
+                        scale    : [0.5, 2],
+                        anchor   : 'top center',
+                        className: 'psv-virtual-tour__marker',
+                        style : {
+                            color: 'rgba(0, 208, 255, 0.8)',
+                            transform: 'rotate(20deg)',
+                        },
                     },
-                ],
-                [
-                    PhotoSphereViewer.VirtualTourPlugin,
-                    {
-                        positionMode: PhotoSphereViewer.VirtualTourPlugin.MODE_GPS,
-                        renderMode: PhotoSphereViewer.VirtualTourPlugin.MODE_3D,
-                    },
-                ],
+                }],
             ],
         });
-   
-    </script>
-</body>
+        
+        var virtualTour = viewer.getPlugin(PhotoSphereViewer.VirtualTourPlugin);
 
-<style>
-    html,
-    body,
-    #photosphere {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-    }
-</style>
-
+        virtualTour.setNodes([
+            {
+                id      : '1',
+                panorama: 'L31.jpg',
+                thumbnail: 'L31.jpg',
+                name    : 'One',
+                links   : [
+                    { nodeId: '2',"x": 5320, "y": 1989},
+                    { nodeId: '3' ,"x": 0, "y": 1953},
+                ],
+                markers: [
+                    {
+                        "id": "marker-1",
+                        "html": document.getElementById('dark1').innerHTML,
+                        "longitude": 0.15,
+                        "latitude": -0.195,
+                        "width": 200,
+                        "height": 32,
+                        
+                    },
+                    {
+                        "id": "marker-1-1",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 0.13,
+                        "latitude": -0.01,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1-11",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 0.9,
+                        "latitude": -0.09,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์1",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1-2",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 0.67,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์2",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1-21",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.61,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์3",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1-3",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 2.9,
+                        "latitude": -0.08,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "บึงสีฐานฝั่งตะวันตก",
+                        "content": "<h2>บึงสีฐานฝั่งตะวันตก</h2><br>บึงสีฐาน แหล่งน้ำใหญ่ในมหาวิทยาลัยขอนแก่น โดยมีสองฝั่ง และถูกเรียกเป็น 1.บึงสีฐานฝั่งตะวันออก (ฝั่งทางหอประชุมกาญจนาภิเษก) และ 2. บึงสีฐานฝั่งตะวันตก (ฝั่งทางหอศิลปวัฒนธรรม) และบึงสีฐานฝั่งนี้ถูกใช้เป็นที่จัดกิจกรรมต่างๆมากมาย อาทิเช่น ในช่วงก่อนที่จะมี โควิด-19 ทางชมรมสมาธิและศีลธรรม มหาวิทยาลัยขอนแก่น ได้จัดกิจกรรมปล่อยปลาทุกวันศุกร์",
+                    },
+                    {
+                        "id": "marker-1-31",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.383,
+                        "latitude": -0.07,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "บึงสีฐานฝั่งตะวันตก1",
+                        "content": "<h2>บึงสีฐานฝั่งตะวันตก</h2><br>บึงสีฐาน แหล่งน้ำใหญ่ในมหาวิทยาลัยขอนแก่น โดยมีสองฝั่ง และถูกเรียกเป็น 1.บึงสีฐานฝั่งตะวันออก (ฝั่งทางหอประชุมกาญจนาภิเษก) และ 2. บึงสีฐานฝั่งตะวันตก (ฝั่งทางหอศิลปวัฒนธรรม) และบึงสีฐานฝั่งนี้ถูกใช้เป็นที่จัดกิจกรรมต่างๆมากมาย อาทิเช่น ในช่วงก่อนที่จะมี โควิด-19 ทางชมรมสมาธิและศีลธรรม มหาวิทยาลัยขอนแก่น ได้จัดกิจกรรมปล่อยปลาทุกวันศุกร์",
+                    },
+                    {
+                        "id": "marker-1-311",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.53,
+                        "latitude": -0.09,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "บึงสีฐานฝั่งตะวันตก5",
+                        "content": "<h2>บึงสีฐานฝั่งตะวันตก</h2><br>บึงสีฐาน แหล่งน้ำใหญ่ในมหาวิทยาลัยขอนแก่น โดยมีสองฝั่ง และถูกเรียกเป็น 1.บึงสีฐานฝั่งตะวันออก (ฝั่งทางหอประชุมกาญจนาภิเษก) และ 2. บึงสีฐานฝั่งตะวันตก (ฝั่งทางหอศิลปวัฒนธรรม) และบึงสีฐานฝั่งนี้ถูกใช้เป็นที่จัดกิจกรรมต่างๆมากมาย อาทิเช่น ในช่วงก่อนที่จะมี โควิด-19 ทางชมรมสมาธิและศีลธรรม มหาวิทยาลัยขอนแก่น ได้จัดกิจกรรมปล่อยปลาทุกวันศุกร์",
+                    },
+                    {
+                        "id": "marker-1-32",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.28,
+                        "latitude": -0.08,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "บึงสีฐานฝั่งตะวันตก2",
+                        "content": "<h2>บึงสีฐานฝั่งตะวันตก</h2><br>บึงสีฐาน แหล่งน้ำใหญ่ในมหาวิทยาลัยขอนแก่น โดยมีสองฝั่ง และถูกเรียกเป็น 1.บึงสีฐานฝั่งตะวันออก (ฝั่งทางหอประชุมกาญจนาภิเษก) และ 2. บึงสีฐานฝั่งตะวันตก (ฝั่งทางหอศิลปวัฒนธรรม) และบึงสีฐานฝั่งนี้ถูกใช้เป็นที่จัดกิจกรรมต่างๆมากมาย อาทิเช่น ในช่วงก่อนที่จะมี โควิด-19 ทางชมรมสมาธิและศีลธรรม มหาวิทยาลัยขอนแก่น ได้จัดกิจกรรมปล่อยปลาทุกวันศุกร์",
+                    },
+                    {
+                        "id": "marker-1-33",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.53,
+                        "latitude": -0.08,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "บึงสีฐานฝั่งตะวันตก3",
+                        "content": "<h2>บึงสีฐานฝั่งตะวันตก</h2><br>บึงสีฐาน แหล่งน้ำใหญ่ในมหาวิทยาลัยขอนแก่น โดยมีสองฝั่ง และถูกเรียกเป็น 1.บึงสีฐานฝั่งตะวันออก (ฝั่งทางหอประชุมกาญจนาภิเษก) และ 2. บึงสีฐานฝั่งตะวันตก (ฝั่งทางหอศิลปวัฒนธรรม) และบึงสีฐานฝั่งนี้ถูกใช้เป็นที่จัดกิจกรรมต่างๆมากมาย อาทิเช่น ในช่วงก่อนที่จะมี โควิด-19 ทางชมรมสมาธิและศีลธรรม มหาวิทยาลัยขอนแก่น ได้จัดกิจกรรมปล่อยปลาทุกวันศุกร์",
+                    },
+                    {
+                        "id": "marker-1-34",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.943,
+                        "latitude": -0.09,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "บึงสีฐานฝั่งตะวันตก4",
+                        "content": "<h2>บึงสีฐานฝั่งตะวันตก</h2><br>บึงสีฐาน แหล่งน้ำใหญ่ในมหาวิทยาลัยขอนแก่น โดยมีสองฝั่ง และถูกเรียกเป็น 1.บึงสีฐานฝั่งตะวันออก (ฝั่งทางหอประชุมกาญจนาภิเษก) และ 2. บึงสีฐานฝั่งตะวันตก (ฝั่งทางหอศิลปวัฒนธรรม) และบึงสีฐานฝั่งนี้ถูกใช้เป็นที่จัดกิจกรรมต่างๆมากมาย อาทิเช่น ในช่วงก่อนที่จะมี โควิด-19 ทางชมรมสมาธิและศีลธรรม มหาวิทยาลัยขอนแก่น ได้จัดกิจกรรมปล่อยปลาทุกวันศุกร์",
+                    },
+                    {
+                        "id": "marker-1-341",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.8,
+                        "latitude": -0.09,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "บึงสีฐานฝั่งตะวันตก41",
+                        "content": "<h2>บึงสีฐานฝั่งตะวันตก</h2><br>บึงสีฐาน แหล่งน้ำใหญ่ในมหาวิทยาลัยขอนแก่น โดยมีสองฝั่ง และถูกเรียกเป็น 1.บึงสีฐานฝั่งตะวันออก (ฝั่งทางหอประชุมกาญจนาภิเษก) และ 2. บึงสีฐานฝั่งตะวันตก (ฝั่งทางหอศิลปวัฒนธรรม) และบึงสีฐานฝั่งนี้ถูกใช้เป็นที่จัดกิจกรรมต่างๆมากมาย อาทิเช่น ในช่วงก่อนที่จะมี โควิด-19 ทางชมรมสมาธิและศีลธรรม มหาวิทยาลัยขอนแก่น ได้จัดกิจกรรมปล่อยปลาทุกวันศุกร์",
+                    },
+                    {
+                        "id": "marker-1-342",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.65,
+                        "latitude": -0.09,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "บึงสีฐานฝั่งตะวันตก42",
+                        "content": "<h2>บึงสีฐานฝั่งตะวันตก</h2><br>บึงสีฐาน แหล่งน้ำใหญ่ในมหาวิทยาลัยขอนแก่น โดยมีสองฝั่ง และถูกเรียกเป็น 1.บึงสีฐานฝั่งตะวันออก (ฝั่งทางหอประชุมกาญจนาภิเษก) และ 2. บึงสีฐานฝั่งตะวันตก (ฝั่งทางหอศิลปวัฒนธรรม) และบึงสีฐานฝั่งนี้ถูกใช้เป็นที่จัดกิจกรรมต่างๆมากมาย อาทิเช่น ในช่วงก่อนที่จะมี โควิด-19 ทางชมรมสมาธิและศีลธรรม มหาวิทยาลัยขอนแก่น ได้จัดกิจกรรมปล่อยปลาทุกวันศุกร์",
+                    },
+                    {
+                        "id": "marker-1-4",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.85,
+                        "latitude": -0.10,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หอศิลปวัฒนธรรม",
+                        "content": "<h2>หอศิลปวัฒนธรรม</h2><br>หอศิลปวัฒนธรรม มหาวิทยาลัยขอนแก่น ก่อตั้งขึ้นในปี พ.ศ. 2539 รัฐบาลในสมัย ฯพณฯ ชวน หลีกภัย เป็นนายกรัฐมนตรีในขณะนั้นได้อนุมัติงบประมาณแผ่นดิน มาดำเนินการก่อสร้างหอศิลปวัฒนธรรม มหาวิทยาลัยขอนแก่น บริเวณบึงสีฐานฝั่งตะวันตก อาคารเป็นทรงเล้าข้าวของชาวอีสาน จัดแสดงนิทรรศการและทำกิจกรรมด้านศิลปวัฒนธรรมและงานอื่นๆที่เกี่ยวข้องส่วนที่ 1 อาคารแสดงนิทรรศการศิลปะ คือ บริเวณ ชั้นที่ 1 และชั้นที่ 3 เป็นพื้นที่จัดนิทรรศการศิลปะหมุนเวียน ทั้งผลงานของศิลปินไทย ต่างประเทศ นักศึกษาภายใน ภายนอกมหาวิทยาลัย หน่วยงานของรัฐ และเอกชน มีนิทรรศการจัดตลอดทั้งปี ภายในหอศิลป์ ประกอบไปด้วย 2 ส่วนหลักๆส่วนที่ 1 อาคารแสดงนิทรรศการศิลปะ คือ บริเวณ ชั้นที่ 1 และชั้นที่ 3 เป็นพื้นที่จัดนิทรรศการศิลปะหมุนเวียน ทั้งผลงานของศิลปินไทย ต่างประเทศ นักศึกษาภายใน ภายนอกมหาวิทยาลัย หน่วยงานของรัฐ และเอกชน มีนิทรรศการจัดตลอดทั้งปี ส่วนที่ 2 นิทรรศการถาวร ห้อง “อีสานนิทัศน์” เปิดให้เข้าชม จันทร์-ศุกร์ เวลา 09.00-16.30 น. “อีสานนิทัศน์” เป็นห้องนิทรรศการถาวรชั้น 2 ในรูปแบบ “พิพิธภัณฑ์การศึกษา (Educational Museum)” ที่แสดงเรื่องราวเกี่ยวกับภูมิภาคอีสาน โดยใช้วิธีการนำเสนอด้วยเทคโนโลยีและสื่อที่ทันสมัย",
+                    },
+                    {
+                        "id": "marker-1-5",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 2.3,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ลานกิจกรรมและอัฒจันทร์",
+                        "content": "<h2>ลานกิจกรรมและอัฒจันทร์</h2><br>พื้นที่สำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์กลางในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต มีการเปิดให้บุคคลทั่วไปสามารถเข้าใช้สถานที่ได้",
+                    },
+                    {
+                        "id": "marker-1-51",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 2,
+                        "latitude": -0.01,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ลานกิจกรรมและอัฒจันทร์1",
+                        "content": "<h2>ลานกิจกรรมและอัฒจันทร์</h2><br>พื้นที่สำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์กลางในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต มีการเปิดให้บุคคลทั่วไปสามารถเข้าใช้สถานที่ได้",
+                    },
+                    {
+                        "id": "marker-1-52",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.75,
+                        "latitude": -0.01,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ลานกิจกรรมและอัฒจันทร์2",
+                        "content": "<h2>ลานกิจกรรมและอัฒจันทร์</h2><br>พื้นที่สำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์กลางในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต มีการเปิดให้บุคคลทั่วไปสามารถเข้าใช้สถานที่ได้",
+                    },
+                    {
+                        "id": "marker-1-53",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.45,
+                        "latitude": -0.13,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ลานกิจกรรมและอัฒจันทร์3",
+                        "content": "<h2>ลานกิจกรรมและอัฒจันทร์</h2><br>พื้นที่สำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์กลางในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต มีการเปิดให้บุคคลทั่วไปสามารถเข้าใช้สถานที่ได้",
+                    },
+                    {
+                        "id": "marker-1-54",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.27,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ลานกิจกรรมและอัฒจันทร์4",
+                        "content": "<h2>ลานกิจกรรมและอัฒจันทร์</h2><br>พื้นที่สำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์กลางในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต มีการเปิดให้บุคคลทั่วไปสามารถเข้าใช้สถานที่ได้",
+                    },
+                    {
+                        "id": "marker-1-55",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 0.97,
+                        "latitude": -0.15,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ลานกิจกรรมและอัฒจันทร์5",
+                        "content": "<h2>ลานกิจกรรมและอัฒจันทร์</h2><br>พื้นที่สำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์กลางในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต มีการเปิดให้บุคคลทั่วไปสามารถเข้าใช้สถานที่ได้",
+                    },
+                    {
+                        "id": "marker-1-56",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.1,
+                        "latitude": -0.09,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ลานกิจกรรมและอัฒจันทร์61",
+                        "content": "<h2>ลานกิจกรรมและอัฒจันทร์</h2><br>พื้นที่สำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์กลางในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต มีการเปิดให้บุคคลทั่วไปสามารถเข้าใช้สถานที่ได้",
+                    },
+                    {
+                        "id": "marker-1-57",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.6,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ลานกิจกรรมและอัฒจันทร์62",
+                        "content": "<h2>ลานกิจกรรมและอัฒจันทร์</h2><br>พื้นที่สำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์กลางในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต มีการเปิดให้บุคคลทั่วไปสามารถเข้าใช้สถานที่ได้",
+                    },
+                    {
+                        "id": "marker-1-6",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.45,
+                        "latitude": -0.10,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ลานปล่อยนกบินอิสระ",
+                        "content": "<h2>ลานปล่อยนกบินอิสระ</h2><br>ลานปล่อยนกบินอิสระที่บึงสีฐานฝั่งตะวันตก ซึ่งเป็นสถานที่ที่มีผู้คนสัตว์เลี้ยงของตน เช่น นก มาทำการฝึกบิน หรือให้นกได้ออกกำลังกาย",
+                    },
+                ],
+               // position: [180, 25, 3],
+                panoData: { poseHeading: 0 },
+            },
+            {
+                id      : '2',
+                panorama: 'L32.jpg',
+                thumbnail: 'L32.jpg',
+                name    : 'Two',
+                links   : [
+                    { nodeId: '3' ,"x": 816, "y": 1837},
+                    { nodeId: '1' ,"x": 1968, "y": 2068},
+                ],
+                markers: [
+                    {
+                        "id": "marker-2",
+                        "html": document.getElementById('dark2').innerHTML,
+                        "longitude": 0.234,
+                        "latitude": -0.357,
+                        "width": 32,
+                        "height": 32,
+                        
+                    },
+                    {
+                        "id": "marker-o3uw49his5h",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 0.271,
+                        "latitude": 0.002,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-o3uw49his5h1",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 6.32,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว1",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-o3uw49his5h2",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 6.42,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว2",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.282,
+                        "latitude": 0.17,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh2",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.552,
+                        "latitude": -0.03,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์2",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh3",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.462,
+                        "latitude": -0.03,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์3",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh4",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.352,
+                        "latitude": -0.03,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์4",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh5",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.642,
+                        "latitude": -0.03,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์5",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh1",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.032,
+                        "latitude": 0.17,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์1",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-yyt9n9tz7e",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.4,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หอศิลปวัฒนธรรม",
+                        "content": "<h2>หอศิลปวัฒนธรรม</h2><br>หอศิลปวัฒนธรรม มหาวิทยาลัยขอนแก่น ก่อตั้งขึ้นในปี พ.ศ. 2539 รัฐบาลในสมัย ฯพณฯ ชวน หลีกภัย เป็นนายกรัฐมนตรีในขณะนั้นได้อนุมัติงบประมาณแผ่นดิน มาดำเนินการก่อสร้างหอศิลปวัฒนธรรม มหาวิทยาลัยขอนแก่น บริเวณบึงสีฐานฝั่งตะวันตก อาคารเป็นทรงเล้าข้าวของชาวอีสาน จัดแสดงนิทรรศการและทำกิจกรรมด้านศิลปวัฒนธรรมและงานอื่นๆที่เกี่ยวข้อง ส่วนที่ 1 อาคารแสดงนิทรรศการศิลปะ คือ บริเวณ ชั้นที่ 1 และชั้นที่ 3 เป็นพื้นที่จัดนิทรรศการศิลปะหมุนเวียน ทั้งผลงานของศิลปินไทย ต่างประเทศ นักศึกษาภายใน ภายนอกมหาวิทยาลัย หน่วยงานของรัฐ และเอกชน มีนิทรรศการจัดตลอดทั้งปี ภายในหอศิลป์ ประกอบไปด้วย 2 ส่วนหลักๆ ส่วนที่ 1 อาคารแสดงนิทรรศการศิลปะ คือ บริเวณ ชั้นที่ 1 และชั้นที่ 3 เป็นพื้นที่จัดนิทรรศการศิลปะหมุนเวียน ทั้งผลงานของศิลปินไทย ต่างประเทศ นักศึกษาภายใน ภายนอกมหาวิทยาลัย หน่วยงานของรัฐ และเอกชน มีนิทรรศการจัดตลอดทั้งปี ส่วนที่ 2 นิทรรศการถาวร ห้อง “อีสานนิทัศน์” เปิดให้เข้าชม จันทร์-ศุกร์ เวลา 09.00-16.30 น. “อีสานนิทัศน์” เป็นห้องนิทรรศการถาวรชั้น 2 ในรูปแบบ “พิพิธภัณฑ์การศึกษา (Educational Museum)” ที่แสดงเรื่องราวเกี่ยวกับภูมิภาคอีสาน โดยใช้วิธีการนำเสนอด้วยเทคโนโลยีและสื่อที่ทันสมัย",
+                    },
+                    {
+                        "id": "marker-x24colr7yv",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.269,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "รูปปั้นธรรมจักร",
+                        "content": "<h2>รูปปั้นธรรมจักร</h2><br>ธรรมจักหรือกงล้อแห่งธรรม เป็นสัญลักษณ์ที่ใช้สื่อถึงธรรมของพระพุทธเจ้า  บ้างใช้เป็นสัญลักษณ์แทน พระโคตมพุทธเจ้า  และใช้แทนหนทางสู่ การตรัสรู้  ปรากฏใช้เช่นนี้นับตั้งแต่ศาสนาพุทธยุคแรก บางครั้งปรากฏเชื่อมโยงธรมจักรเข้ากับ อริยสัจสี่ อริยมรรคแปด และปฏิจจสมุปบาท",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.469,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k5",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.669,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่5",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k1",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.869,
+                        "latitude": -0.12,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่2",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k2",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.769,
+                        "latitude": -0.09,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่3",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k3",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 2.13,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่4",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-7bgkg2cvhpi",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.1,
+                        "latitude": -0.3,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หมากนวล",
+                        "content": "<h2>หมากนวล</h2><br>หมากนวล เป็นพรรณไม้ยืนต้นประเภทปาล์มมีทรงพุ่มขนาดกลางลำต้นมีความสูงประมาณ 5-10 เมตรการเจริญเป็นลำต้นเดี่ยว ไม่มีหน่อ ลำต้นตรงสูง ผิวลำต้นสีน้ำตาลปนเทา ลำต้นเป็นข้อปล้องเห็นได้ชัด ใบเป็นใบรวม แตกออกจากทางใบเป็นรูปขนตก  เรียงกันเป็นแถวอย่างเป็นระเบียบลักษณะใบแคบยาว ขนาดใบมีความกว้างประมาณ 3-5 เซนติเมตร ยาวประมาณ 50 - 60 เซนติเมตรตัวใบมีสีเขียวเรียบเป็นมันทางใบยาวประมาณ 1-2 เมตรลักษณะโค้งเล็กน้อยโคนทางจะเป็นกาบหุ้มลำต้นมีสีเขียว อ่อนปนขาวนวลออกดอกเป็นช่อคล้ายจั่นหมากก้านดอกมีสีขาวนวลลักษณะของดอกมีขนาดเล็กรวมกันอยู่เป็นจำนวนมากมีสีขาว อมเหลือง ผลเล็กกลมรีมีสีเขียวอ่อน เมื่อแก่จะเปลี่ยนเป็นสีแดงสด ภายในผลมีเมล็ดอยู่เพียงเมล็ดเดียว ",
+                    },
+                ],
+                //position: [150.156168, 25.666623, 3],
+                panoData: { poseHeading: 0 },
+            },
+            {
+                id      : '3',
+                panorama: 'L33.jpg',
+                thumbnail: 'L33.jpg',
+                name    : 'Two',
+                links   : [
+                    { nodeId: '2' ,"x": 816, "y": 1837},
+                    { nodeId: '4' ,"x": 1968, "y": 2068},
+                ],
+                markers: [
+                    {
+                        "id": "marker-2",
+                        "html": document.getElementById('dark2').innerHTML,
+                        "longitude": 0.234,
+                        "latitude": -0.357,
+                        "width": 32,
+                        "height": 32,
+                        
+                    },
+                    {
+                        "id": "marker-o3uw49his5h",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 0.621,
+                        "latitude": 0.002,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-o3uw49his5h3",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 0.381,
+                        "latitude": -0.07,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว3",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-o3uw49his5h1",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 6.34,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว1",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-o3uw49his5h2",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 6.2,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว2",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 0.951,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh2",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 6.05,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์2",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh3",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.152,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์3",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh4",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.9,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์4",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh1",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.032,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์1",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-yyt9n9tz7e",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.3,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หอศิลปวัฒนธรรม",
+                        "content": "<h2>หอศิลปวัฒนธรรม</h2><br>หอศิลปวัฒนธรรม มหาวิทยาลัยขอนแก่น ก่อตั้งขึ้นในปี พ.ศ. 2539 รัฐบาลในสมัย ฯพณฯ ชวน หลีกภัย เป็นนายกรัฐมนตรีในขณะนั้นได้อนุมัติงบประมาณแผ่นดิน มาดำเนินการก่อสร้างหอศิลปวัฒนธรรม มหาวิทยาลัยขอนแก่น บริเวณบึงสีฐานฝั่งตะวันตก อาคารเป็นทรงเล้าข้าวของชาวอีสาน จัดแสดงนิทรรศการและทำกิจกรรมด้านศิลปวัฒนธรรมและงานอื่นๆที่เกี่ยวข้อง ส่วนที่ 1 อาคารแสดงนิทรรศการศิลปะ คือ บริเวณ ชั้นที่ 1 และชั้นที่ 3 เป็นพื้นที่จัดนิทรรศการศิลปะหมุนเวียน ทั้งผลงานของศิลปินไทย ต่างประเทศ นักศึกษาภายใน ภายนอกมหาวิทยาลัย หน่วยงานของรัฐ และเอกชน มีนิทรรศการจัดตลอดทั้งปี ภายในหอศิลป์ ประกอบไปด้วย 2 ส่วนหลักๆ ส่วนที่ 1 อาคารแสดงนิทรรศการศิลปะ คือ บริเวณ ชั้นที่ 1 และชั้นที่ 3 เป็นพื้นที่จัดนิทรรศการศิลปะหมุนเวียน ทั้งผลงานของศิลปินไทย ต่างประเทศ นักศึกษาภายใน ภายนอกมหาวิทยาลัย หน่วยงานของรัฐ และเอกชน มีนิทรรศการจัดตลอดทั้งปี ส่วนที่ 2 นิทรรศการถาวร ห้อง “อีสานนิทัศน์” เปิดให้เข้าชม จันทร์-ศุกร์ เวลา 09.00-16.30 น. “อีสานนิทัศน์” เป็นห้องนิทรรศการถาวรชั้น 2 ในรูปแบบ “พิพิธภัณฑ์การศึกษา (Educational Museum)” ที่แสดงเรื่องราวเกี่ยวกับภูมิภาคอีสาน โดยใช้วิธีการนำเสนอด้วยเทคโนโลยีและสื่อที่ทันสมัย",
+                    },
+                    {
+                        "id": "marker-x24colr7yv",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.109,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "รูปปั้นธรรมจักร",
+                        "content": "<h2>รูปปั้นธรรมจักร</h2><br>ธรรมจักหรือกงล้อแห่งธรรม เป็นสัญลักษณ์ที่ใช้สื่อถึงธรรมของพระพุทธเจ้า  บ้างใช้เป็นสัญลักษณ์แทน พระโคตมพุทธเจ้า  และใช้แทนหนทางสู่ การตรัสรู้  ปรากฏใช้เช่นนี้นับตั้งแต่ศาสนาพุทธยุคแรก บางครั้งปรากฏเชื่อมโยงธรมจักรเข้ากับ อริยสัจสี่ อริยมรรคแปด และปฏิจจสมุปบาท",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.469,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k5",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.669,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่5",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k1",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.4,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่2",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k6",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.65,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่6",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k7",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.9,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่7",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k2",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 2.4,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่3",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k3",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 2.7,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่4",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-7bgkg2cvhpi",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หมากนวล",
+                        "content": "<h2>หมากนวล</h2><br>หมากนวล เป็นพรรณไม้ยืนต้นประเภทปาล์มมีทรงพุ่มขนาดกลางลำต้นมีความสูงประมาณ 5-10 เมตรการเจริญเป็นลำต้นเดี่ยว ไม่มีหน่อ ลำต้นตรงสูง ผิวลำต้นสีน้ำตาลปนเทา ลำต้นเป็นข้อปล้องเห็นได้ชัด ใบเป็นใบรวม แตกออกจากทางใบเป็นรูปขนตก  เรียงกันเป็นแถวอย่างเป็นระเบียบลักษณะใบแคบยาว ขนาดใบมีความกว้างประมาณ 3-5 เซนติเมตร ยาวประมาณ 50 - 60 เซนติเมตรตัวใบมีสีเขียวเรียบเป็นมันทางใบยาวประมาณ 1-2 เมตรลักษณะโค้งเล็กน้อยโคนทางจะเป็นกาบหุ้มลำต้นมีสีเขียว อ่อนปนขาวนวลออกดอกเป็นช่อคล้ายจั่นหมากก้านดอกมีสีขาวนวลลักษณะของดอกมีขนาดเล็กรวมกันอยู่เป็นจำนวนมากมีสีขาว อมเหลือง ผลเล็กกลมรีมีสีเขียวอ่อน เมื่อแก่จะเปลี่ยนเป็นสีแดงสด ภายในผลมีเมล็ดอยู่เพียงเมล็ดเดียว ",
+                    },
+                ],
+                //position: [150.156168, 25.666623, 3],
+                panoData: { poseHeading: 0 },
+            },
+            {
+                id      : '4',
+                panorama: 'L34.jpg',
+                thumbnail: 'L34.jpg',
+                name    : 'Two',
+                links   : [
+                    { nodeId: '2' ,"x": 816, "y": 1837},
+                    { nodeId: '3' ,"x": 1968, "y": 2068},
+                ],
+                markers: [
+                    {
+                        "id": "marker-2",
+                        "html": document.getElementById('dark2').innerHTML,
+                        "longitude": 0.234,
+                        "latitude": -0.357,
+                        "width": 32,
+                        "height": 32,
+                        
+                    },
+                    {
+                        "id": "marker-o3uw49his5h",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 0.621,
+                        "latitude": 0.002,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-o3uw49his5h3",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 0.35,
+                        "latitude": -0.07,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว3",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-o3uw49his5h1",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 6.4,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว1",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-o3uw49his5h2",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 6,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หลวงพ่อไทรขาว2",
+                        "content": "<h2>หลวงพ่อไทรขาว</h2><br>ศูนย์วัฒนธรรมมหาวิทยาลัยขอนแก่นได้มีความต้องการที่จะปรับปรุงภูมิทัศน์ด้านหลังอาคารพุทธศิลป์ และได้มีนโยบายจากทางมหาวิทยาลัยขอนแก่นว่าต้องการให้บริเวณนี้เป็นพื้นที่แห่งการเรียนรู้ และเป้นพื้นที่แห่งการสร้างสรรค์ให้เกิดสาธารณะประโยชน์ต่างๆ จึงได้ย้ายบุคลากรไปฝั่งมอดินแดง หลังจากนั้นได้มีการออกแบบเพื่อพัฒนาพื้นที่บริเวณต้นไทรเพียงต้นเดียวที่อยู่ ถ้ายิ่งมองจะเห็นว่าต้นไทรนั้นมีความน่ากลัว และดูขลัง จึงได้คิดที่จะนำพระพุทธรูปมาประดิษฐาน โดยได้นำพระพุทธรูปมาจาก อำเภอเชียงยืน จังหวัดขอนแก่น ลักษณะของหลังพ่อไทรขาว - หน้าตักกว้าง 13 เซนติเมตร - ฐานกว้าง 73 เซนติเมตร - สร้างมาจากปูนซีเมนต์ - อุษณีษะทรงกรวยปลายตัด - ขมวดพระเกศาเป็นก้นหอย - ปางมารวิชัย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.05,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh2",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 5.86,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์2",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh3",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.57,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์3",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh5",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.6,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์5",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh6",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.64,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์6",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh7",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.665,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์7",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh4",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.48,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์4",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-1zd0ooxoejh1",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.53,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "อาคารพุทธศิลป์1",
+                        "content": "<h2>อาคารพุทธศิลป์</h2><br>อาคารพุทธศิลป์ พื้นที่อาคารชุดสำหรับจัดกิจกรรมหลากหลายรูปแบบ เป็นศูนย์ในการทำกิจกรรมต่างๆ ทั้งในส่วนของสถานที่และภาพลักษณ์ในการทำกิจกรรมในอนาคต รวมทั้งเป็นบริเวณของศูนย์กลางด้านวัฒนธรรม เป็นบริเวณที่จัดการเรียนรู้ที่หลากหลาย",
+                    },
+                    {
+                        "id": "marker-yyt9n9tz7e",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 4.432,
+                        "latitude": -0.05,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หอศิลปวัฒนธรรม",
+                        "content": "<h2>หอศิลปวัฒนธรรม</h2><br>หอศิลปวัฒนธรรม มหาวิทยาลัยขอนแก่น ก่อตั้งขึ้นในปี พ.ศ. 2539 รัฐบาลในสมัย ฯพณฯ ชวน หลีกภัย เป็นนายกรัฐมนตรีในขณะนั้นได้อนุมัติงบประมาณแผ่นดิน มาดำเนินการก่อสร้างหอศิลปวัฒนธรรม มหาวิทยาลัยขอนแก่น บริเวณบึงสีฐานฝั่งตะวันตก อาคารเป็นทรงเล้าข้าวของชาวอีสาน จัดแสดงนิทรรศการและทำกิจกรรมด้านศิลปวัฒนธรรมและงานอื่นๆที่เกี่ยวข้อง ส่วนที่ 1 อาคารแสดงนิทรรศการศิลปะ คือ บริเวณ ชั้นที่ 1 และชั้นที่ 3 เป็นพื้นที่จัดนิทรรศการศิลปะหมุนเวียน ทั้งผลงานของศิลปินไทย ต่างประเทศ นักศึกษาภายใน ภายนอกมหาวิทยาลัย หน่วยงานของรัฐ และเอกชน มีนิทรรศการจัดตลอดทั้งปี ภายในหอศิลป์ ประกอบไปด้วย 2 ส่วนหลักๆ ส่วนที่ 1 อาคารแสดงนิทรรศการศิลปะ คือ บริเวณ ชั้นที่ 1 และชั้นที่ 3 เป็นพื้นที่จัดนิทรรศการศิลปะหมุนเวียน ทั้งผลงานของศิลปินไทย ต่างประเทศ นักศึกษาภายใน ภายนอกมหาวิทยาลัย หน่วยงานของรัฐ และเอกชน มีนิทรรศการจัดตลอดทั้งปี ส่วนที่ 2 นิทรรศการถาวร ห้อง “อีสานนิทัศน์” เปิดให้เข้าชม จันทร์-ศุกร์ เวลา 09.00-16.30 น. “อีสานนิทัศน์” เป็นห้องนิทรรศการถาวรชั้น 2 ในรูปแบบ “พิพิธภัณฑ์การศึกษา (Educational Museum)” ที่แสดงเรื่องราวเกี่ยวกับภูมิภาคอีสาน โดยใช้วิธีการนำเสนอด้วยเทคโนโลยีและสื่อที่ทันสมัย",
+                    },
+                    {
+                        "id": "marker-x24colr7yv",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.109,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "รูปปั้นธรรมจักร",
+                        "content": "<h2>รูปปั้นธรรมจักร</h2><br>ธรรมจักหรือกงล้อแห่งธรรม เป็นสัญลักษณ์ที่ใช้สื่อถึงธรรมของพระพุทธเจ้า  บ้างใช้เป็นสัญลักษณ์แทน พระโคตมพุทธเจ้า  และใช้แทนหนทางสู่ การตรัสรู้  ปรากฏใช้เช่นนี้นับตั้งแต่ศาสนาพุทธยุคแรก บางครั้งปรากฏเชื่อมโยงธรมจักรเข้ากับ อริยสัจสี่ อริยมรรคแปด และปฏิจจสมุปบาท",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.2,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k5",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.3,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่5",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k8",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.4,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่8",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k9",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 1.53,
+                        "latitude": -0.051,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่9",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k1",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.4,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่2",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k6",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.7,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่6",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k7",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.95,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่7",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k2",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 2.2,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่3",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-gvf7kskib2k3",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 2.6,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "ต้นไผ่4",
+                        "content": "<h2>ต้นไผ่</h2><br>ไผ่ เป็นพืชชนิดหนึ่งที่มีลำต้นสูงและมักอยู่รวมกันเป็นกอขนาดใหญ่ ไผ่อยู่ในพืชตระกูลหญ้าและถือได้ว่าเป็นต้นหญ้าขนาดใหญ่ที่สุดในโลกในประเทศไทย พบไผ่มากกว่า 60 ชนิด หน่ออ่อนของไผ่เป็นอาหารของสัตว์ป่าหลายชนิดรวมทั้งมนุษย์ นอกจากส่วนหน่อมนุษย์ยังนำส่วนใบมาห่อขนม ลำต้นสร้างบ้านทำหลังคา ต่อแพ หรือแม่แต่ทำข้าวหลาม",
+                    },
+                    {
+                        "id": "marker-7bgkg2cvhpi",
+                        "image": "https://media.tenor.com/W4nmjcvLtfoAAAAi/magnifying-glass-icon.gif",
+                        "longitude": 3.05,
+                        "latitude": -0.1,
+                        "width": 32,
+                        "height": 32,
+                        "tooltip": "หมากนวล",
+                        "content": "<h2>หมากนวล</h2><br>หมากนวล เป็นพรรณไม้ยืนต้นประเภทปาล์มมีทรงพุ่มขนาดกลางลำต้นมีความสูงประมาณ 5-10 เมตรการเจริญเป็นลำต้นเดี่ยว ไม่มีหน่อ ลำต้นตรงสูง ผิวลำต้นสีน้ำตาลปนเทา ลำต้นเป็นข้อปล้องเห็นได้ชัด ใบเป็นใบรวม แตกออกจากทางใบเป็นรูปขนตก  เรียงกันเป็นแถวอย่างเป็นระเบียบลักษณะใบแคบยาว ขนาดใบมีความกว้างประมาณ 3-5 เซนติเมตร ยาวประมาณ 50 - 60 เซนติเมตรตัวใบมีสีเขียวเรียบเป็นมันทางใบยาวประมาณ 1-2 เมตรลักษณะโค้งเล็กน้อยโคนทางจะเป็นกาบหุ้มลำต้นมีสีเขียว อ่อนปนขาวนวลออกดอกเป็นช่อคล้ายจั่นหมากก้านดอกมีสีขาวนวลลักษณะของดอกมีขนาดเล็กรวมกันอยู่เป็นจำนวนมากมีสีขาว อมเหลือง ผลเล็กกลมรีมีสีเขียวอ่อน เมื่อแก่จะเปลี่ยนเป็นสีแดงสด ภายในผลมีเมล็ดอยู่เพียงเมล็ดเดียว ",
+                    },
+                ],
+                //position: [150.156168, 25.666623, 3],
+                panoData: { poseHeading: 0 },
+            },
+        ], '1');
+        </script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    </body>
 </html>

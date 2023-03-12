@@ -1,14 +1,20 @@
 <template>
     <b-col md="4">
-        <b-card :title=title img-alt="image" img-top tag="article" style="max-width: 20rem;" class="mb-2"
-            :img-src=image>
+        <b-card img-alt="image" img-top tag="article" style="max-width: 20rem;" class="mb-2" :img-src=image>
             <b-card-text>
+                {{ title }}
                 {{ content }}
+                {{ location }}
+                <!-- {{ image }} -->
             </b-card-text>
+
         </b-card>
     </b-col>
 </template>
-<script>
+<script >
+import axios from 'axios';
+const url = 'http://localhost:8000/api/performance';
+
 export default {
     props: {
         id: {
@@ -25,17 +31,12 @@ export default {
         },
         image: {
             type: String,
-            required: true
+            required: false
         },
-        // isAdmin: {
-        //     type: Boolean,
-        //     required: true
-        // }
+        location: {
+            type: String,
+            required: true
+        }
     },
-    // computed: {
-    //     postLink() {
-    //         return this.isAdmin ? '/admin/post' + this.id : '/post/' + this.id
-    //     }
-    // }
 }
 </script>
