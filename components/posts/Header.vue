@@ -12,9 +12,8 @@
                     <b-nav-item href="/">Home</b-nav-item>
                     <div class="">
                         <b-nav-item-dropdown text="360 virtual tour" right>
-                            <b-dropdown-item href="/T copy.html">1st floor</b-dropdown-item>
-                            <b-dropdown-item href="/T copy.html">2st floor</b-dropdown-item>
-                            <b-dropdown-item href="/T copy 3.html">3st floor</b-dropdown-item>
+                            <b-dropdown-item href="/T copy.html">1st exhibition</b-dropdown-item>
+                            <b-dropdown-item href="/T copy 4.html">2st exhibition</b-dropdown-item>
                         </b-nav-item-dropdown>
                     </div>
                     <!-- <b-nav-item href="/Virtual.html">360 virtual tour</b-nav-item> -->
