@@ -16,14 +16,33 @@
             content="ศิลปิน: อุทัย หาระสาร เทคนิค: สีอะคริลิคบนผ้าใบ ขนาด: 60x80 cm"
             image="https://cdn.pixabay.com/photo/2020/09/09/00/09/cityscape-5556124__480.jpg" /> -->
         <!-- {{ datas }} -->
-        <div v-for="data in datas" :key="data.performance_id">
-            <PostList :title=data.performance_name :content=data.performance_sculptute :image=data.performance_image
-                :location="data.performance_location" />
+        <!--<div class="grid-container">
+                <div class="caed" v-for="data in datas" :key="data.performance_id">
+                    <PostList :title=data.performance_name :content=data.performance_sculptute :image=data.performance_image
+                        :location="data.performance_location" />
+                </div>
+            </div>--><br>
+        <div class="grid-container">
+            <div   v-for="data in datas" :key="data.performance_id">
+                <div class="card">
+                    <div class="caed">
+                        <img :src="data.performance_image" :alt="data.performance_name"
+                        style="width:100%">
+                    </div>
+                    <h7><b>{{ data.performance_name }}</b></h7>
+                    {{ content=data.performance_sculptute }}<br>
+                    {{ location=data.performance_location }}<br>
+                    {{ location=data.performance_type }}<br>
+                    {{ location=data.performance_size }}<br>
+                </div><br>
+                <!--<PostList :title=data.performance_name :content=data.performance_sculptute :image=data.performance_image
+                    :location="data.performance_location" />-->
+            </div>
         </div>
     </b-row>
 </template>
 
-<script >
+<script>
 import axios from 'axios';
 import PostList from '@/components/posts/PostList.vue';
 
@@ -43,11 +62,44 @@ export default {
     }
 }
 </script>
-<style>
-/* .card-img-left {
+<style scoped>
+.grid-container{
+    display: grid;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+}
+@media (min-width: 576px){
+    .grid-container{grid-template-columns: repeat(1,1fr);}
+}
+@media (min-width: 992px){
+    .grid-container{grid-template-columns: repeat(3,1fr);}
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 80%;
+}
 
-    width: 500px;
-    height: 400px;
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  
+}
 
-} */
+.card-container {
+  padding: 2px 16px;
+}
+.caed {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+}
+
+.caed:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: scale(1.5);
+}
+
+.caed-container {
+  padding: 2px 16px;
+}
 </style>
