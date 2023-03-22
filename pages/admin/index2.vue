@@ -1,16 +1,16 @@
 <template>
     <div>
         <b-container fluid="md">
-            <AdminNew />
+            <AdminForm />
         </b-container>
     </div>
 </template>
 <script>
-import AdminNew from '../../components/admin/AdminNew.vue'
+import AdminForm from '../../components/admin/AdminForm.vue'
 export default {
     layout: "coreLayout",
     components: {
-        AdminNew,
+        AdminForm,
     }
 }
 </script>

@@ -23,7 +23,7 @@
     </b-row>
 </template>
 
-<script>
+<script >
 import axios from 'axios';
 import PostList from '@/components/posts/PostList.vue';
 
