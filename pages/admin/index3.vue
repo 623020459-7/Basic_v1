@@ -1,28 +1,26 @@
 <template>
     <div>
         <b-container fluid="md">
-            <Header />
-            <AdminLogin />
+            <AdminNew @sendData="onSubmitted" />
         </b-container>
-
     </div>
 </template>
-
 <script>
-import Header from '../../components/posts/Header.vue';
-import AdminLogin from '../../components/admin/AdminLogin.vue';
-
-
-
+import AdminNew from '../../components/admin/AdminNew.vue'
+import axios from 'axios'
 export default {
     layout: "coreLayout",
     components: {
-        Header,
-        //PostList,
-        AdminLogin
-        // Virtual_tour
-    }
+        AdminNew,
+    },
+    methods: {
+        onSubmitted(postData) {
+            axios.post("http://localhost:8000/api/postPerformance", postData)
+                .then(res => {
+                    console.log(res);
+                })
+            console.log("Result", postData);
+        }
+    },
 }
-
-
 </script>

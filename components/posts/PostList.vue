@@ -11,7 +11,7 @@
         </b-card>
     </b-col>
 </template>
-<script >
+<script>
 import axios from 'axios';
 const url = 'http://localhost:8000/api/performance';
 
