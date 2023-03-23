@@ -40,26 +40,6 @@ export default {
     },
     name: 'EntypoUser',
     name: 'PhLockKeyFill',
-    // data() {
-    //     return {
-    //         username: ' ',
-    //         password: ' ',
-    //     };
-    // },
-
-    // computed: {
-    //     resultMessageColor() {
-    //         switch (this.loginStatus) {
-    //             case 'success':
-    //                 return 'green'
-    //             case 'failure':
-    //                 return 'red'
-    //             default:
-    //                 return ''
-    //         }
-    //     }
-    // },
-
     data() {
         return {
             username: ' ',
@@ -67,22 +47,7 @@ export default {
         }
     },
     methods: {
-        // async login(e) {
-        //     e.preventDefault();
 
-        //     const payload = {
-        //         data: {
-        //             username: this.user_name,
-        //             password: this.user_password
-        //         }
-        //     }
-
-        //     try {
-        //         await this.$auth.loginWith('local', payload)
-        //     } catch (error) {
-        //         console.log(error)
-        //     }
-        // },
         async login(e) {
             e.preventDefault();
 
@@ -96,48 +61,16 @@ export default {
                     data: payload
                 }
                 );
-                console.log("============200================")
                 this.$router.push('/admin/index2');
             } catch (e) {
                 // console.log(error)
+                // this.resultMessage = 'Login failed'
                 this.$router.push('/');
-                console.log("==============xxxxxxxxxxxxxxxxxxxxx==============", e.message)
             }
         }
     }
-    // async login() {
-    //     const data = { 'username': this.username, 'password': this.password }
-    //     console.log(this.username, this.password);
-    //     try {
-    //         const response = await this.$auth.loginWith('local', { data: data })
-    //         console.log(response)
-    //         this.$auth.$storage.setUniversal('username', response.data.username)
-    //         await this.setUserToken(response.data.access_token, response.data.refresh_token)
-    //     } catch (e) {
-    //         console.log(e.message)
-    //     }
-    // }
-    //async login() {
-    // Dummy request(Succeed/fail after 1 sec.)
-    //     const shouldSuccess = true
-    //     const url = 'http://localhost:8000/api/user';
-    //     axios.post(url).then((res) => this.datas = res.data)
-    //     const request = new Promise((resolve, reject) =>
-    //         setTimeout(
-    //             () => (shouldSuccess ? resolve() : reject(Error('login failure'))),
-    //             1000
-    //         )
-    //     )
 
-    //     try {
-    //         await request
-    //         this.loginStatus = 'success'
-    //         this.resultMessage = 'Login successful'
-    //     } catch (e) {
-    //         this.loginStatus = 'failure'
-    //         this.resultMessage = 'Login failed'
-    //     }
-    // }
+
 
 
 };

@@ -1,190 +1,77 @@
 <template>
-    <!-- <div>
-        <br />
-        <h2>Form</h2>
-        <form>
-            <b-text-field v-model="name" label="Name"></b-text-field>
-            <b-text-field v-model="sculptute" label="Sculptute"></b-text-field>
-            <b-text-field v-model="location" label="Location"></b-text-field>
-            <b-btn @click="submit({ name, sculptute, location })">{{
-                id ? "Edit" : "Submit"
-            }}</b-btn>
-        </form>
-    </div> -->
     <div>
-        <form @submit.prevent="onSubmit">
-            <h3>Create Performance</h3>
+        <h2>Form</h2>
+        <form @submit="onSubmit" @reset="onReset">
             <div class="md-2">
                 <label>Name</label>
-                <input type="text" v-model="performance_name" class="form-control" required>
+                <input type="text" v-model="form.name" class="form-control" placeholder="name" required>
             </div>
             <div class="md-2">
                 <label>Sculptute</label>
-                <input type="text" v-model="performance_sculptute" class="form-control" required>
+                <input type="text" v-model="form.sculptute" class="form-control" placeholder="sculptute" required>
             </div>
             <div class="mb-2">
                 <label>Location</label>
-                <input type="text" v-model="performance_location" class="form-control" required>
+                <input type="text" v-model="form.location" class="form-control" placeholder="location" required>
             </div>
             <div class="mb-2">
                 <label>Image</label>
-                <input type="text" v-model="performance_image" class="form-control" required>
+                <input type="text" v-model="form.image" class="form-control" placeholder="image" required>
             </div>
             <div class="mb-2">
                 <label>Type</label>
-                <input type="text" v-model="performance_type" class="form-control" required>
+                <input type="text" v-model="form.type" class="form-control" placeholder="text" required>
             </div>
             <div class="mb-2">
                 <label>Size</label>
-                <input type="text" v-model="performance_size" class="form-control" required>
+                <input type="text" v-model="form.size" class="form-control" placeholder="size" required>
             </div>
             <div class="mb-2">
                 <label>CategoryId</label>
-                <input type="text" v-model="category_id" class="form-control" required>
+                <input type="text" v-model="form.category" class="form-control" placeholder="categoryid" required>
             </div>
-            <div>
-                <b-btn
-                    @click="submit({ performance_name, performance_sculptute, performance_location, performance_image, performance_type, performance_size, category_id })">{{
-                        id ? 'Edit'
-                        : submit }}Save</b-btn>
-                <NuxtLink to="/admin/index2" class="btn btn">Go Back</NuxtLink>
-            </div>
+            <b-btn type="submit">save</b-btn>
+            <b-btn type="reset">delete</b-btn>
+
         </form>
     </div>
 </template>
 <script >
-// import { userInfo } from 'os'; -->
-
-
-
 export default ({
-    computed: {
-        id: {
-            get() {
-                return this.$store.state.performance.id;
-            },
-            set(value) {
-                this.$store.commit("user/setId", value);
-            },
-        },
-        name: {
-            get() {
-                return this.$store.state.performance.name;
-            },
-            set(value) {
-                this.$store.commit("user/setName", value);
-            },
-        },
-        sculptute: {
-            get() {
-                return this.$store.state.performance.sculptute;
-            },
-            set(value) {
-                this.$store.commit("user/setSculptute", value);
-            },
-        },
-        location: {
-            get() {
-                return this.$store.state.performance.location;
-            },
-            set(value) {
-                this.$store.commit("user/setLocation", value);
-            },
-        },
-        image: {
-            get() {
-                return this.$store.state.performance.image;
-            },
-            set(value) {
-                this.$store.commit("user/setImage", value);
-            },
-        },
-        type: {
-            get() {
-                return this.$store.state.performance.type;
-            },
-            set(value) {
-                this.$store.commit("user/setType", value);
-            },
-        },
-        size: {
-            get() {
-                return this.$store.state.performance.size;
-            },
-            set(value) {
-                this.$store.commit("user/setSize", value);
-            },
-        },
-        category: {
-            get() {
-                return this.$store.state.performance.category;
-            },
-            set(value) {
-                this.$store.commit("user/setCategory", value);
-            },
-        },
+    data() {
+        return {
+            form: {
+                name: "",
+                sculptute: "",
+                location: "",
+                image: "",
+                type: '',
+                size: "",
+                category: ""
+            }
+        }
     },
     methods: {
-        async submit(performance) {
-            if (performance.id) {
-                await this.$axios.put("http://localhost:8000/api/putPerformance" + performance.id, {
-                    name: performance.performance_name,
-                    sculptute: performance.performance_sculptute,
-                    location: performance.performance_location,
-                    image: performanc.performance_image,
-                    type: performance.performance_type,
-                    size: performance.performance_size,
-                    category: performance.category_id
-                });
-            } else {
-                await this.$axios.post("http://localhost:8000/api/postPerformance", {
-                    name: performance.performance_name,
-                    sculptute: performance.performance_sculptute,
-                    location: performance.performance_location,
-                    image: performanc.performance_image,
-                    type: performance.performance_type,
-                    size: performance.performance_size,
-                    category: performance.category_id
-                });
-            }
-            this.resetPerformance({ id: 0, name: "", sculptute: "", location: "", image: "", type: "", size: "", category: "", password: "" });
-            this.$store.commit(
-                "performances/storeData",
-                (await this.$axios.get("http://localhost:8000/api/performance")).data
-            );
+        onSubmit(evt) {
+            evt.preventDefault();
+            this.$emit('sendData', this.form)
+            // console.log(this.form);
         },
-        resetPerformance(performance) {
-            this.$store.commit("performance/setId", performance.id);
-            this.$store.commit("performance/setName", performance.name);
-            this.$store.commit("performance/setSculptute", performance.sculptute);
-            this.$store.commit("performance/setLocation", performance.location);
-        },
+        onReset(evt) {
+            evt.preventDefault();
+            this.form.name = '';
+            this.form.sculptute = '';
+            this.form.location = '';
+            this.form.image = '';
+            this.form.type = '';
+            this.form.size = '';
+            this.form.category = '';
+
+        }
     },
+
 })
-    //name: "AdminNew",
-    // data() {
-    //     return {
-    //         performance_name: "",
-    //         performance_sculptute: "",
-    //         performance_location: "",
-    //         performance_image: "",
-    //         performance_type: '',
-    //         performance_size: "",
-    //         category_id: ""
-    //     }
-    // },
-    //methods: {
-    // async submit(performance){
-    //     if(data.performance_id){
-    //         await this.$axios.put("http://localhost:8000/api/post/Performance" + data.performance_id,performance );
-    //     }else{
-    //         await this.$axios.post("http://localhost:8000/api/post/Performance",){
-    //             performance_name: performance_image,
-    //             form.performance_sculptute
-    //         }
-    //     }
-    // }
-    //  },
+
 </script>
 <style >
 a:hover,

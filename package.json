@@ -22,5 +22,14 @@
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/623020459-7/Basic_v1.git",
+  "author": "BASIC_V1_FEATURE_FIRST <Kanokphon_ka@kkumail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2"
   }
 }
