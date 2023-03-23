@@ -30,9 +30,8 @@
                     <div class="">
                         <b-nav-item-dropdown text="Performance" right>
                             <b-dropdown-item href="/performance/index2">Painting</b-dropdown-item>
-                            <b-dropdown-item href="#">Sculpture</b-dropdown-item>
-                            <b-dropdown-item href="#">Statue</b-dropdown-item>
-                            <b-dropdown-item href="#">Carving</b-dropdown-item>
+                            <b-dropdown-item href="/performance/index3">Sculpture</b-dropdown-item>
+                            <b-dropdown-item href="/performance/index4">architecture</b-dropdown-item>
                         </b-nav-item-dropdown>
                     </div>
                     <div class="">

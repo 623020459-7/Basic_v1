@@ -56,7 +56,7 @@ export default {
         };
     },
     mounted() {
-        const url = 'http://localhost:8000/api/getPerformanceCategory_Id/1';
+        const url = 'http://localhost:8000/api/getPerformanceCategory_Id/2';
         axios.get(url).then((res) => this.datas = res.data)
         console.log("Success API");
     }
