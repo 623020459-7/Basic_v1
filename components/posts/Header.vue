@@ -34,9 +34,12 @@
                             <b-dropdown-item href="/performance/index4">architecture</b-dropdown-item>
                         </b-nav-item-dropdown>
                     </div>
+                    <!-- <div v-if="$auth.loggedIn">
+                        {{ $auth.user.password }}
+                    </div> -->
                     <div class="">
                         <b-nav-item-dropdown text="Login" right>
-                            <b-dropdown-item href="/admin/index3">Login</b-dropdown-item>
+                            <b-dropdown-item href="/admin/index1">Login</b-dropdown-item>
                             <b-dropdown-item href="#">Logout</b-dropdown-item>
                         </b-nav-item-dropdown>
                     </div>
