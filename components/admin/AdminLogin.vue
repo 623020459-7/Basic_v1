@@ -8,7 +8,6 @@
                         d="M7.725 2.146c-1.016.756-1.289 1.953-1.239 2.59c.064.779.222 1.793.222 1.793s-.313.17-.313.854c.109 1.717.683.976.801 1.729c.284 1.814.933 1.491.933 2.481c0 1.649-.68 2.42-2.803 3.334C3.196 15.845 1 17 1 19v1h18v-1c0-2-2.197-3.155-4.328-4.072c-2.123-.914-2.801-1.684-2.801-3.334c0-.99.647-.667.932-2.481c.119-.753.692-.012.803-1.729c0-.684-.314-.854-.314-.854s.158-1.014.221-1.793c.065-.817-.398-2.561-2.3-3.096c-.333-.34-.558-.881.466-1.424c-2.24-.105-2.761 1.067-3.954 1.929z">
                     </path>
                 </svg>
-                <!-- font awesome icon -->
                 <i class="fas fa-user"></i>
             </label>
             <input type="text" name="username" placeholder="Username" id="username" ref="username" required>
@@ -25,9 +24,6 @@
         </form>
     </div>
 </template>
-
-
-
 <script>
 import AdminForm from './AdminForm.vue';
 import AdminEditForm from './AdminEditForm.vue';
@@ -50,12 +46,10 @@ export default {
 
         async login(e) {
             e.preventDefault();
-
             const payload = {
                 username: this.$refs.username.value,
                 password: this.$refs.password.value
             };
-
             try {
                 await this.$auth.loginWith('local', {
                     data: payload
@@ -63,16 +57,11 @@ export default {
                 );
                 this.$router.push('/admin/index2');
             } catch (e) {
-                // console.log(error)
-                // this.resultMessage = 'Login failed'
-                this.$router.push('/');
+                alert('Login failed')
+                this.$router.push('/admin/index1');
             }
         }
     }
-
-
-
-
 };
 
 </script>
@@ -83,10 +72,6 @@ export default {
     font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
     font-size: 16px;
 }
-
-/* body {
-    background-color: rgb(119, 43, 20);
-} */
 
 .login {
     width: 400px;

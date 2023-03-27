@@ -7,26 +7,7 @@
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav class="ml-auto">
-                    <b-nav-item href="/">Home</b-nav-item>
-                    <div class="">
-                        <b-nav-item-dropdown text="360 virtual tour" right>
-                            <b-dropdown-item href="/T copy.html">1st exhibition</b-dropdown-item>
-                            <b-dropdown-item href="/T copy 4.html">2st exhibition</b-dropdown-item>
-                        </b-nav-item-dropdown>
-                    </div>
-                    <div class="">
-                        <b-nav-item-dropdown text="Performance" right>
-                            <b-dropdown-item href="/performance/index2">Painting</b-dropdown-item>
-                            <b-dropdown-item href="/performance/index3">Sculpture</b-dropdown-item>
-                            <b-dropdown-item href="/performance/index4">architecture</b-dropdown-item>
-                        </b-nav-item-dropdown>
-                    </div>
-                    <div class="">
-                        <b-nav-item-dropdown text="Login" right>
-                            <b-dropdown-item href="/admin/index1">Login</b-dropdown-item>
-                            <b-dropdown-item href="/admin/index1">Logout</b-dropdown-item>
-                        </b-nav-item-dropdown>
-                    </div>
+                    <b-nav-item href="/admin/index1">Logout</b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>

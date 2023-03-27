@@ -11,6 +11,6 @@ export default {
     layout: "coreLayout",
     components: {
         AdminEditForm,
-    }
+    },
 }
 </script>

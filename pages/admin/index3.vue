@@ -1,6 +1,7 @@
 <template>
     <div>
         <b-container fluid="md">
+
             <AdminNew @sendData="onSubmitted" />
         </b-container>
     </div>
