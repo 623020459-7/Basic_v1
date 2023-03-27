@@ -1,14 +1,14 @@
 <template>
-    <div container-md>
-        <NuxtLink to="/admin/index3" class="btn-btn">
+    <div>
+        <NuxtLink to="/admin/index3" class="btn btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 20 20">
                 <path fill="currentColor"
                     d="M10 1.6a8.4 8.4 0 1 0 0 16.8a8.4 8.4 0 0 0 0-16.8zm5 9.4h-4v4H9v-4H5V9h4V5h2v4h4v2z">
                 </path>
             </svg>
         </NuxtLink>
-        <div class="container">
-            <table class="">
+        <div class="col-sm-4">
+            <table class="table table-dark">
                 <thead>
                     <tr class="table-header">
                         <th class="white--text">ID</th>
@@ -33,12 +33,12 @@
                         <td>{{ data.performance_size }}</td>
                         <td>{{ data.category_id }}</td>
                         <td>
-                            <NuxtLink :to="{ path: '/admin/index4', query: { id: data.performance_id } }"
-                                class="btn btn-warning btn-sm me-1">
-                                Edit
+                            <b-btn type="edit" class="btn btn-warning btn-sm me-1">Edit</b-btn>
+                            <b-btn type=" reset" class="btn btn-danger btn-sm">delete</b-btn>
+                            <!-- <NuxtLink :to="`/admin/index3${data.performance_id}`" class="btn btn-warning btn-sm me-1">Edit
                             </NuxtLink>
-                            <b-btn type=" reset" @click="deletePerformance(data.performance_id, index)"
-                                class="btn btn-danger btn-sm">delete</b-btn>
+                            <button type="button" class="btn btn-danger btn-sm"
+                                @click="destroy(data.performance_id)">Delete</button> -->
                         </td>
                     </tr>
                 </tbody>
@@ -86,26 +86,3 @@ export default ({
 })
 
 </script>
-<style>
-.container-md {
-    /* flex: 33%; */
-    max-width: 100%;
-    align-content: center;
-    padding-left: 15px;
-    padding-top: 50px;
-}
-
-.container {
-    /* flex: 33%; */
-    max-width: 200%;
-    /* align-content: center; */
-    padding-left: 15px;
-    padding-top: 20px;
-}
-
-.table-header {
-    background-color: var(--color-kku);
-    color: aliceblue;
-    padding: 20px;
-}
-</style>
