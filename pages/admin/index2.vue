@@ -1,28 +1,30 @@
 <template>
     <div>
         <b-container fluid="md">
-            <Header />
-            <AdminForm />
+            <HeaderAdmin />
+            <AdminForm @reset="onReset" />
         </b-container>
-
     </div>
 </template>
-
 <script>
-import Header from '../../components/posts/Header.vue';
+import HeaderAdmin from '../../components/posts/HeaderAdmin.vue';
 import AdminForm from '../../components/admin/AdminForm.vue'
-
-
-
 export default {
     layout: "coreLayout",
     components: {
-        Header,
-        //PostList,
+        HeaderAdmin,
         AdminForm,
-        // Virtual_tour
-    }
+
+    },
+    methods: {
+        onReset(deleteData) {
+            axios.delete("http://localhost:8000/api/deletePerformance/" + performance_id, deleteData)
+                .then(res => {
+                    console.log(res);
+                    // this.route.push("/admin/index2")
+                })
+            console.log("Result", deleteData);
+        }
+    },
 }
-
-
 </script>
