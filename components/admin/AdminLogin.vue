@@ -43,7 +43,6 @@ export default {
         }
     },
     methods: {
-
         async login(e) {
             e.preventDefault();
             const payload = {

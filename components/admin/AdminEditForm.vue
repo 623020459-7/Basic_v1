@@ -18,7 +18,7 @@
             </div>
             <div class="mb-2">
                 <label>Image (URL)</label>
-                <input type="email" v-model="image" class="form-control" placeholder="image" required>
+                <input type="text" v-model="image" class="form-control" placeholder="image" required>
             </div>
             <div class="mb-2">
                 <label>Type</label>
